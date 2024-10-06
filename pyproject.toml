@@ -24,6 +24,7 @@ streamlit = "^1.38.0"
 requests = "^2.32.3"
 transformers = "^4.44.2"
 pre-commit = "^3.8.0"
+ruff = "^0.6.9"
 
 [build-system]
 requires = ["poetry-core"]
