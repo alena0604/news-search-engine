@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "news-search-engine"
+version = "0.1.0"
+description = ""
+authors = ["Alena Nazarava"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+pydantic = "^2.9.0"
+python-dotenv = "^1.0.1"
+bytewax = "^0.21.0"
+newsapi-python = "^0.2.7"
+unstructured = "^0.15.9"
+newsdataapi = "^0.1.20"
+pydantic-settings = "^2.4.0"
+langchain = "^0.1.13"
+torch = "2.2.2"
+qdrant-client = "^1.11.3"
+streamlit = "^1.38.0"
+omegaconf = "^2.3.0"
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.32.3"
+transformers = "^4.44.2"
+pre-commit = "^3.8.0"
+ruff = "^0.6.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
