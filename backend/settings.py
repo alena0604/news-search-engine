@@ -4,6 +4,7 @@ import os
 
 class AppConfig:
     """Application configuration loader for environment variables and YAML configs."""
+
     def __init__(self, config_path: str = None):
         if config_path and os.path.exists(config_path):
             self.config = OmegaConf.load(config_path)
