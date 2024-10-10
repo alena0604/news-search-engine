@@ -2,9 +2,11 @@ import datetime
 import functools
 import logging
 from typing import Callable, List
+
 from newsapi import NewsApiClient
 from newsdataapi import NewsDataApiClient
 from pydantic import ValidationError
+
 from backend.models import CommonDocument, NewsAPIModel, NewsDataIOModel
 from backend.settings import AppConfig
 

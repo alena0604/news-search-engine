@@ -30,7 +30,7 @@ run_backend:
 # Run the frontend service
 run_frontend:
 	@echo "Starting frontend..."
-	$(STREAMLIT) run ./frontend/ui.py
+	@set -a && source .env && $(STREAMLIT) run ./frontend/app.py
 
 # Help target to display available commands
 help:

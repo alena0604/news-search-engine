@@ -1,17 +1,19 @@
+import logging as logger
+import os
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Optional
+
 import bytewax.operators as op
 from bytewax.dataflow import Dataflow
 from bytewax.inputs import FixedPartitionedSource, StatefulSourcePartition
 from bytewax.outputs import DynamicSink
-from backend.news_loader import ArticleFetcher
-from backend.models import RefinedDocument, ChunkedDocument, EmbeddedDocument
-import logging as logger
+
 from backend.embeddings import TextEmbedder
-from typing import Optional
-from pathlib import Path
-from datetime import datetime, timezone, timedelta
+from backend.models import ChunkedDocument, EmbeddedDocument, RefinedDocument
+from backend.news_loader import ArticleFetcher
 from backend.qdrant import QdrantVectorOutput
 from backend.settings import AppConfig
-import os
 
 
 class NewsStreamSource(StatefulSourcePartition):
@@ -56,7 +58,9 @@ class NewsStreamInput(FixedPartitionedSource):
 
 
 def build(model_cache_dir: Optional[Path] = None):
-    config_path = os.path.join(os.path.dirname(__file__), "config.yaml")
+    config_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../conf/config.yaml")
+    )
     config = AppConfig(config_path=config_path)
 
     fetcher = ArticleFetcher(config=config)

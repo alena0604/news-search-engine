@@ -1,14 +1,21 @@
-from typing import Optional, List
+import logging
+import os
+from typing import List, Optional
+
 from bytewax.outputs import DynamicSink, StatelessSinkPartition
 from qdrant_client import QdrantClient
 from qdrant_client.http.api_client import UnexpectedResponse
-from qdrant_client.http.models import Distance, VectorParams
+from qdrant_client.http.models import (
+    Distance,
+    FieldCondition,
+    Filter,
+    MatchValue,
+    VectorParams,
+)
 from qdrant_client.models import PointStruct
-from qdrant_client.http.models import Filter, FieldCondition, MatchValue
+
 from backend.models import EmbeddedDocument
 from backend.settings import AppConfig
-import logging
-import os
 
 
 class QdrantVectorOutput(DynamicSink):
