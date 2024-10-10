@@ -1,10 +1,11 @@
+import re
+
 from unstructured.cleaners.core import (
     clean,
     clean_non_ascii_chars,
-    replace_unicode_quotes,
     remove_punctuation,
+    replace_unicode_quotes,
 )
-import re
 
 
 def remove_html_tags(text):

@@ -1,5 +1,6 @@
-from omegaconf import OmegaConf
 import os
+
+from omegaconf import OmegaConf
 
 
 class AppConfig:
